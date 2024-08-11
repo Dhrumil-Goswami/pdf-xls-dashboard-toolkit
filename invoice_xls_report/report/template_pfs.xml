@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_pfs">
+        <t t-call="web.html_container">
+            <!-- <t t-call="web.basic_layout"> -->
+                <t t-foreach="docs" t-as="o">
+                    <!-- <div class="page"> -->
+                        <table class="table table-condensed" cellpadding="0" cellspacing="0" width="100%" style="width:100%; margin:0px auto;border:1px solid black;">
+                            <tr style="border:1px solid black;height:17px;">
+                                <th style="font-family:Arial;font-size:10px;background-color:#51E0A5;text-align: left;">OLD MISSOURI BANK</th>
+                                <th colspan="6" style="background-color:#51E0A5;"></th>
+                                <th colspan="3" style="border-right:1px solid black;border-left:1px solid black;"></th>
+                            </tr>
+                            <tr style="height:23px;background-color:#51E0A5;">
+                                <th class="text-left" style="font-family:Arial;font-size:10px;">3570 S NATIONAQL</th>
+                                <th class="text-left" style="font-family:Arial;font-size:10px;text-align:left;">SPRINGFIELD,</th>
+                                <th class="text-left" style="font-family:Arial;font-size:10px;text-align:left;">SMO 65807</th>
+                                <th class="row" style="font-family:Arial;font-size:14px;text-align: center;" colspan="3">PERSONAL FINANCIAL STATEMENT</th>
+                                <th class="text-left" style="font-family:Arial;font-size:10px;text-align: center;">Dated:</th>
+                                <th class="text-left" style="font-family:Arial;font-size:10px;background-color:white;border-right:1px solid black;border-left:1px solid black;" colspan="3">
+                                <t t-esc="o.invoice_date"/></th>
+                            </tr>
+                            <tr style="height:15">
+                                <td style="font-family:Arial;font-size:10px;border-top:1px solid black;"></td>
+                                <td style="font-family:Arial;font-size:10px;border-top:1px solid black;"></td>
+                                <td style="font-family:Arial;font-size:10px;border-top:1px solid black;"></td>
+                                <td class="text-center" colspan="8" style="font-family:Arial;font-size:10px;border-top:1px solid black;">
+                                    IMPORTANT: Read these directions before completing this Statement
+                                </td>
+                            </tr>
+                            <tr style="height:30px;">
+                                <td style="font-family:Arial;font-size:9px;text-align:left;border-top: thin solid black;border-right:thin solid black"></td>
+                                <td style="font-family:Arial;font-size:9px;text-align:left;border-top: thin solid black;" colspan="10">
+                                    If you are applying for individual credit in your owname and are relyng on your own income, or assets and not the income or assets of another person as the basis for<br/>
+                                    repayment of the credit requested, or if this statement relates to your quary of the indebtedness of other personts), firm(s), or corporation(s), complete only Sections 1, 3, and 4
+                                </td>
+                            </tr>
+                            <tr style="height:50px;">
+                                <td style="font-family:Arial;font-size:9px;text-align:left;border-top: thin solid black;border-right:thin solid black"></td>
+                                <td style="font-family:Arial;font-size:9px;text-align:left;border-top: thin solid black;" colspan="10">
+                                    If you are applying for individual credit but are relying on income from alimony, child support, or separate maintenance or on the income or assets of another person as a basis<br/>
+                                    for repayment of the credit requested, complete all Sections. Provide information in Section 2 about the person whose alimony, support, or maintenance payments or income or <br/>
+                                    assets you are relying on.Alimony, childsupport, or separate maintenance income, need not be revealed if you do not wish to have it considered as a basis for repaying this obligation.
+                                </td>
+                            </tr>
+                            <tr style="height:13px;background-color:#B0A9A9;">
+                                <!-- <th colspan="1" style="font-family:Arial;font-size:10px;text-align:center;border-top: 1px solid black;"></th> -->
+                                <th colspan="4" style="font-family:Arial;font-size:10px;text-align:center;border-top: 1px solid black;">Section 1 Individual Information</th>
+                                <!-- <th colspan="" style="font-family:Arial;font-size:10px;text-align:center;border-top: 1px solid black;"></th> -->
+                                <th colspan="6" style="font-family:Arial;font-size:10px;text-align:center;border-top: 1px solid black;">Section 2 - Other Party Information</th>
+                            </tr>
+                            <tr style="height:13px;">
+                                <td style="width:15%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">Name</td>
+                                <td colspan="4" style="width:35%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black"><t t-esc="o.partner_id.name"/></td>
+                                <td style="width:15%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">Name</td>
+                                <td colspan="4" style="width:35%;font-family:Arial;font-size:10px;border-top:1px solid black;"><t t-esc="o.partner_id.name"/></td>
+                            </tr>
+                            <tr style="height:13px;">
+                                <td style="width:15%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">Address</td>
+                                <td colspan="4" style="width:35%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black"><t t-esc="o.partner_id.street"/> , <t t-esc="o.partner_id.street2"/></td>
+                                <td style="width:15%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">Address</td>
+                                <td colspan="4" style="width:35%;font-family:Arial;font-size:10px;border-top:1px solid black;"><t t-esc="o.partner_id.street"/> , <t t-esc="o.partner_id.street2"/></td>
+                            </tr>
+                            <tr style="height:13px;">
+                                <td style="width:15%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">City, State, Zip</td>
+                                <td colspan="4" style="width:35%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black"><t t-esc="o.partner_id.city"/> , <t t-esc="o.partner_id.state_id.name"/> ,<t t-esc="o.partner_id.zip"/></td>
+                                <td style="width:15%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">City, State, Zip</td>
+                                <td colspan="4" style="width:35%;font-family:Arial;font-size:10px;border-top:1px solid black;"><t t-esc="o.partner_id.city"/> , <t t-esc="o.partner_id.state_id.name"/> ,<t t-esc="o.partner_id.zip"/></td>
+                            </tr>
+                            <tr style="height:13px;">
+                                <td style="width:15%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">Social Security #</td>
+                                <td colspan="4" style="width:35%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black"></td>
+                                <td style="width:15%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">Social Security #</td>
+                                <td colspan="4" style="width:35%;font-family:Arial;font-size:10px;border-top:1px solid black;"></td>
+                            </tr>
+                            <tr style="height:13px;">
+                                <td style="width:15%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">Date of Birth</td>
+                                <td colspan="4" style="width:35%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black"></td>
+                                <td style="width:15%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">Date of Birth</td>
+                                <td colspan="4" style="width:35%;font-family:Arial;font-size:10px;border-top:1px solid black;"></td>
+                            </tr> 
+                            <tr style="height:13px;">
+                                <td style="width:15%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">Position/Occupation</td>
+                                <td colspan="4" style="width:35%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black"></td>
+                                <td style="width:15%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">Position/Occupation</td>
+                                <td colspan="4" style="width:35%;font-family:Arial;font-size:10px;border-top:1px solid black;"></td>
+                            </tr> 
+                            <tr style="height:13px;">
+                                <td style="width:15%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">Business Name</td>
+                                <td colspan="4" style="width:35%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black"></td>
+                                <td style="width:15%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">Business Name</td>
+                                <td colspan="4" style="width:35%;font-family:Arial;font-size:10px;border-top:1px solid black;"></td>
+                            </tr>
+                            <tr style="height:13px;">
+                                <td style="width:15%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">Business Address</td>
+                                <td colspan="4" style="width:35%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black"></td>
+                                <td style="width:15%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">Business Address</td>
+                                <td colspan="4" style="width:35%;font-family:Arial;font-size:10px;border-top:1px solid black;"></td>
+                            </tr>
+                            <tr style="height:13px;">
+                                <td style="width:15%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black"></td>
+                                <td colspan="4" style="width:35%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black"></td>
+                                <td style="width:15%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black"></td>
+                                <td colspan="4" style="width:35%;font-family:Arial;font-size:10px;border-top:1px solid black;"></td>
+                            </tr>
+                            <tr style="height:13px;">
+                                <td style="width:15%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">City, State, Zip</td>
+                                <td colspan="4" style="width:35%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black"></td>
+                                <td style="width:15%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">City, State, Zip</td>
+                                <td colspan="4" style="width:35%;font-family:Arial;font-size:10px;border-top:1px solid black;"></td>
+                            </tr> 
+                            <tr style="height:13px;">
+                                <td style="width:7%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">Length at present address</td>
+                                <td style="width:10%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black"></td>
+                                <td style="width:10%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">Length of employment</td>
+                                <td style="width:13%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black"></td>
+                                <td style="width:15%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">Length at present address</td>
+                                <td style="width:13%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black"></td>
+                                <td style="width:7%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">Length of employment</td>
+                                <td colspan="2" style="width:13%;font-family:Arial;font-size:10px;border-top:1px solid black;"></td>
+                            </tr>
+                            <tr style="height:13px;">
+                                <td style="width:5%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">Cell Phone</td>
+                                <td style="font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black"></td>
+                                <td style="width:13%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">Business Phone</td>
+                                <td style="font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black"></td>
+                                <td style="width:5%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">Cell Phone</td>
+                                <td style="font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black"></td>
+                                <td style="width:10%;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">Business Phone</td>
+                                <td colspan="2" style="width:40%;font-family:Arial;font-size:10px;border-top:1px solid black;"></td>
+                            </tr>
+                            <tr style="height:20px;">
+                                <td style="font-family:Arial;font-size:9px;text-align:left;border-top:thin solid black;border-right:thin solid black;" colspan="6">
+                                    Have (either of) you or any firm in which you were a major owner ever declared bankruptcy, or settled any debts for less than the amounts owed?<br/>
+                                    If yes, please provide details on a separate sheet.
+                                </td>
+                                <td colspan="1" style="font-family:Arial;font-size:9px;text-align:center;border-top: thin solid black;border-right:thin solid black"> Yes or No &#8594;</td>
+                                <td colspan="2" style="font-family:Arial;font-size:9px;text-align:center;border-top: thin solid black;"> No </td>
+                            </tr>
+                            <tr style="height:13px;">
+                                <td style="font-family:Arial;font-size:9px;text-align:left;border-top:thin solid black;border-right:thin solid black;" colspan="6">
+                                    Are (either of) you a defendant in any suit or legal action?
+                                </td>
+                                <td  colspan="1" style="font-family:Arial;font-size:9px;text-align:center;border-top: thin solid black;border-right:thin solid black"> Yes or No &#8594;</td>
+                                <td colspan="2" style="font-family:Arial;font-size:9px;text-align:center;border-top: thin solid black;"> No </td>
+                            </tr> 
+                            <tr style="height:13px;">
+                                <td style="font-family:Arial;font-size:9px;text-align:left;border-top:thin solid black;border-right:thin solid black;" colspan="6">
+                                   Are (either of) you presently subject to any unsatisfied judgements to tax liens?
+                                </td>
+                                <td colspan="1" style="font-family:Arial;font-size:9px;text-align:center;border-top: thin solid black;border-right:thin solid black"> Yes or No &#8594;</td>
+                                <td colspan="2" style="font-family:Arial;font-size:9px;text-align:center;border-top: thin solid black;"> No </td>
+                            </tr> 
+                            <tr style="height:13px;">
+                                <td style="font-family:Arial;font-size:9px;text-align:left;border-top:thin solid black;border-right:thin solid black;" colspan="6">
+                                   When, if ever, have (either of) you been audited by IRS?
+                                </td>
+                                <td  colspan="1" style="font-family:Arial;font-size:9px;text-align:right;border-top: thin solid black;border-right:thin solid black"> Date &#8594;</td>
+                                <td colspan="2" style="font-family:Arial;font-size:9px;text-align:center;border-top: thin solid black;"></td>
+                            </tr>
+                            <tr style="height:13px;background-color:#B0A9A9;">
+                                <th colspan="10" style="font-family:Arial;font-size:10px;text-align:left;border-top: 1px solid black;border-right:thin solid black">Section Section 3 - Statement of Financial Condition</th>
+                                
+                            </tr> 
+                            <tr style="height:20px;">
+                                <td colspan="1" style="text-align:center;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">Assets</td>
+                                <td style="text-align:center;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">in Dollars<br/>(omitcents)<br/>Individual</td>
+                                <td style="text-align:center;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">Party or <br/>Other Party<br/> or Jointly</td>
+                                <td style="text-align:center;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">if joint <br/>with whom</td>
+                                <td  colspan="1" style="text-align:center;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">Liabilities</td>
+                                <td style="text-align:center;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">in Dollars<br/>(omitcents)<br/>Individual</td>
+                                <td colspan="1" style="text-align:center;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">Party or <br/>Other Party<br/> or Jointly</td>
+                                <td colspan="1" style="text-align:center;width:13%;font-family:Arial;font-size:10px;border-top:1px solid black;">if joint <br/>with whom</td>
+                            </tr>
+                             <t t-foreach="15" t-as="t">
+                                <tr style="height:20px;">
+                                    <td colspan="1" style="text-align:center;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black"></td>
+                                    <td style="text-align:center;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black"></td>
+                                    <td style="text-align:center;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black"></td>
+                                    <td style="text-align:center;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black"></td>
+                                    <td  colspan="1" style="text-align:center;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black"></td>
+                                    <td style="text-align:center;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black">$ 23,20,815.47</td>
+                                    <td colspan="1" style="text-align:center;font-family:Arial;font-size:10px;border-top:1px solid black;border-right:thin solid black"></td>
+                                    <td colspan="1" style="text-align:center;width:13%;font-family:Arial;font-size:10px;border-top:1px solid black;"></td>
+                            </tr>
+                            </t>
+                            <tr style="height:13px;">
+                                <th colspan="2" style="background-color:#B0A9A9;font-family:Arial;font-size:10px;text-align:left;border-top: 1px solid black;border-right:thin solid black">Section 4 - Annual Income for year ended &#8594;</th>
+                                <th colspan="2" style="font-family:Arial;font-size:10px;text-align:left;border-top: 1px solid black;border-right:thin solid black"></th>
+                                <th colspan="6" style="background-color:#B0A9A9;font-family:Arial;font-size:10px;text-align:left;border-top: 1px solid black;border-right:thin solid black">&#8594;</th>
+                                
+                            </tr>
+                        </table>
+                        <table class="table table-condensed" cellpadding="0" cellspacing="0" style="width:100%; border:1px solid black;">
+                            <tr style="height:11px;border:1px solid black">
+                                    <td  style="text-align:center;font-family:Arial;font-size:10px;border-right:thin solid black;">Annual Income</td>
+                                    <td style="text-align:center;font-family:Arial;font-size:10px;border-right:thin solid black;">Amount</td>
+                                    <td  style="text-align:center;font-family:Arial;font-size:10px;border-right:thin solid black">P / OP / J</td>
+                                    <td  style="text-align:center;font-family:Arial;font-size:10px;border-right:thin solid black">Annual Expenditures</td>
+                                    <td style="text-align:center;font-family:Arial;font-size:10px;border-right:thin solid black">Amount</td>
+                                    <td style="text-align:center;font-family:Arial;font-size:10px;border-right:thin solid black">P / OP / J</td>
+                                    <td colspan="2" style="text-align:center;font-family:Arial;font-size:10px;border-right:thin solid black">Contingent Liabilities Estimated Amts</td>
+                                    <td  style="text-align:center;font-family:Arial;font-size:10px;border-right:thin solid black">Amount</td>
+                                    <td  style="text-align:center;width:13%;font-family:Arial;font-size:10px;">P / OP / J</td>
+                            </tr> 
+                            <tr style="height:15px;">
+                                    <td  style="text-align:left;font-family:Arial;font-size:10px;border-top:thin solid black;border-right:thin solid black;">Salary,bonuses,comm</td>
+                                    <td style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black;"></td>
+                                    <td  style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black"></td>
+                                    <td  style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black">Mortgage/rental pymts</td>
+                                    <td style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black">$ 1,41,154.92</td>
+                                    <td style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black"></td>
+                                    <td style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black">Do you have any...</td>
+                                    <td style="border-top:thin solid black;text-align:center;font-family:Arial;font-size:10px;border-right:thin solid black">Yes or No</td>
+                                    <td  style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black"></td>
+                                    <td style="border-top:thin solid black;text-align:left;width:13%;font-family:Arial;font-size:10px;"></td>
+                            </tr>
+                            <tr style="height:15px;">
+                                    <td  style="text-align:left;font-family:Arial;font-size:10px;border-top:thin solid black;border-right:thin solid black;">Dividends &amp; Interest</td>
+                                    <td style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black;"></td>
+                                    <td  style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black"></td>
+                                    <td  style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black">RE taxes &amp; assessments</td>
+                                    <td style="border-top:thin solid black;text-align:center;font-family:Arial;font-size:10px;border-right:thin solid black">$ 12,000.00</td>
+                                    <td style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black"></td>
+                                    <td style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black">Contingent liabilities-endorser,<br/> co-maker or guarantor?</td>
+                                    <td style="border-top:thin solid black;text-align:center;font-family:Arial;font-size:10px;border-right:thin solid black">N</td>
+                                    <td  style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black"></td>
+                                    <td style="border-top:thin solid black;text-align:left;width:13%;font-family:Arial;font-size:10px;"></td>
+                            </tr>
+                            <tr style="height:15px;">
+                                    <td  style="text-align:left;font-family:Arial;font-size:10px;border-top:thin solid black;border-right:thin solid black;">Real Estate income</td>
+                                    <td style="border-top:thin solid black;text-align:center;font-family:Arial;font-size:10px;border-right:thin solid black;">$ 3,45,078</td>
+                                    <td  style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black">Gross at 5% Vac</td>
+                                    <td  style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black">Taxes-federal, state &amp; local</td>
+                                    <td style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black"></td>
+                                    <td style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black"></td>
+                                    <td style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black">On leases? On Contracts?</td>
+                                    <td style="border-top:thin solid black;text-align:center;font-family:Arial;font-size:10px;border-right:thin solid black">N</td>
+                                    <td  style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black"></td>
+                                    <td style="border-top:thin solid black;text-align:left;width:13%;font-family:Arial;font-size:10px;"></td>
+                            </tr> 
+                            <tr style="height:15px;">
+                                    <td  rowspan="4" style="text-align:left;font-family:Arial;font-size:10px;border-top:thin solid black;border-right:thin solid black;">Other income (alimony,<br/>child support, or separate<br/>maintenance income<br/>needed not be revealed if<br/>you do not wish to have it<br/>considered as a <br/>basis for repaying this<br/></td>
+                                    <td style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black;"></td>
+                                    <td  style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black"></td>
+                                    <td  style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black">Insurance payments</td>
+                                    <td style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black">$ 25,000.00</td>
+                                    <td style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black"></td>
+                                    <td style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black">Involvement in pending legal actions?actions?</td>
+                                    <td style="border-top:thin solid black;text-align:center;font-family:Arial;font-size:10px;border-right:thin solid black">N</td>
+                                    <td  style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black"></td>
+                                    <td style="border-top:thin solid black;text-align:left;width:13%;font-family:Arial;font-size:10px;"></td>
+                            </tr>
+                            <tr style="height:15px;">
+                                    <td style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black;"></td>
+                                    <td  style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black"></td>
+                                    <td  style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black">Other contract pymts<br/> (car pymts, charge cards, etc.)</td>
+                                    <td style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black"></td>
+                                    <td style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black"></td>
+                                    <td style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black">Contested income tax liens?</td>
+                                    <td style="border-top:thin solid black;text-align:center;font-family:Arial;font-size:10px;border-right:thin solid black">N</td>
+                                    <td  style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black"></td>
+                                    <td style="border-top:thin solid black;text-align:left;width:13%;font-family:Arial;font-size:10px;"></td>
+                            </tr>
+                            <tr style="height:15px;">
+                                    <td style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black;"></td>
+                                    <td  style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black"></td>
+                                    <td  style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black">Alimony, child support. maintenance</td>
+                                    <td style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black"></td>
+                                    <td style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black"></td>
+                                    <td style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black">Any estimated capital gains<br/>tax on the unrealized asset<br/>appreciation?</td>
+                                    <td style="border-top:thin solid black;text-align:center;font-family:Arial;font-size:10px;border-right:thin solid black">N</td>
+                                    <td  style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black"></td>
+                                    <td style="border-top:thin solid black;text-align:left;width:13%;font-family:Arial;font-size:10px;"></td>
+                            </tr>
+                            <tr style="height:15px;">
+                                    <td style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black;"></td>
+                                    <td  style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black"></td>
+                                    <td  style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black">Other expenses</td>
+                                    <td style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black"></td>
+                                    <td style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black"></td>
+                                    <td style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black">Other special debt or<br/> circumstances?</td>
+                                    <td style="border-top:thin solid black;text-align:center;font-family:Arial;font-size:10px;border-right:thin solid black">N</td>
+                                    <td  style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black"></td>
+                                    <td style="border-top:thin solid black;text-align:left;width:13%;font-family:Arial;font-size:10px;"></td>
+                            </tr>
+                            <tr style="height:13px;">
+                                    <td style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black;">Total Income</td>
+                                    <td  style="border-top:thin solid black;text-align:right;font-family:Arial;font-size:10px;border-right:thin solid black">$ 3,45,078.00</td>
+                                    <td  style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black"></td>
+                                    <td style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black">Total Expenditures</td>
+                                    <td style="border-top:thin solid black;text-align:right;font-family:Arial;font-size:10px;border-right:thin solid black">$ 1,78,154.92</td>
+                                    <td style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black"></td>
+                                    <td colspan="2" style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black">If yes to any question(s) describe</td>
+                                    <td  colspan="2" style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black"></td>
+                                    
+                            </tr>
+                            <tr style="height:13px;">
+                                    <td rowspan="3" colspan="6" style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black;">*Party=P Other Party=OP Jointly=J</td>
+                                    <td  colspan="4" style="border-top:thin solid black;text-align:right;font-family:Arial;font-size:10px;"></td>
+                                    
+                            </tr>
+                            <tr style="height:13px;">
+                                 <td  colspan="4" style="border-top:thin solid black;text-align:right;font-family:Arial;font-size:10px;"></td>
+                                    
+                            </tr>
+                            <tr style="height:13px;">
+                                 <td  colspan="2" style="border-top:thin solid black;text-align:left;font-family:Arial;font-size:10px;border-right:thin solid black">Total Contingent Liabilities</td>
+                                 <td style="border-top:thin solid black;text-align:right;font-family:Arial;font-size:10px;border-right:thin solid black">$ 0.00</td><td style="border-top:thin solid black;text-align:right;font-family:Arial;font-size:10px;border-right:thin solid black">$ 0.00</td>
+                                    
+                            </tr>
+                            <tr style="height:13px;">
+                                 <td  colspan="10" style="border-top:thin solid black;text-align:center;font-family:Arial;font-size:10px;">COMPLETE SCHEDULES AND SIGN ON REVERSE SIDE</td>
+                                    
+                            </tr>
+                        </table>
+                    <!-- </div> -->
+                <!-- </t> -->
+            </t>
+        </t>
+    </template>
+</odoo>

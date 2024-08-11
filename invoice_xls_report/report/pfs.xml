@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="paperformat_pfs_report" model="report.paperformat">
+            <field name="name">PFS Reports</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">20</field>
+            <field name="margin_bottom">7</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line"/>
+            <field name="header_spacing">35</field>
+            <field name="dpi">90</field>
+        </record>
+        <record id="action_report_pfs" model="ir.actions.report">
+            <field name="name">PERSONAL FINANCIAL STATEMENT</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">invoice_xls_report.report_pfs</field>
+            <field name="report_file">invoice_xls_report.report_pfs</field>
+            <field name="print_report_name">'PERSONAL FINANCIAL STATEMENT'</field>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="invoice_xls_report.paperformat_pfs_report"/>
+        </record>
+    </data>
+</odoo>

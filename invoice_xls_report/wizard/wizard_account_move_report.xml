@@ -1,0 +1,42 @@
+<odoo>
+    <data>
+        <record id="view_move_excel_report_form" model="ir.ui.view">
+            <field name="name">wizard.account.move.repor.form</field>
+            <field name="model">wizard.account.move.report</field>
+            <field name="arch" type="xml">
+                <form string="Account Move Report">
+                    <group>
+                        <group>
+                            <field name="date_start" required="1"/>
+                        </group>
+                        <group>
+                            <field name="date_end" required="1"/>
+                            
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="print_excel_report" type="object" string='Print Report' class="btn-primary"/>
+                        <button name="print_finance_state" type="object" string='Finance State' class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary"
+                                special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+           <!-- Excel Report Wizard Action -->
+        <record model="ir.actions.act_window"
+                id="action_move_excel_report">
+            <field name="name">Invoice Excel Report </field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wizard.account.move.report</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        <menuitem id="menu_move_excel_report"
+                  name="Invoice Excel Report"
+                  action="action_move_excel_report"
+                  sequence="3"
+                  parent="account.menu_finance_reports"
+                  />
+    </data>
+</odoo>
