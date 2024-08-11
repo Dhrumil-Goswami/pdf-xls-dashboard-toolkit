@@ -24,5 +24,5 @@ This project provides a robust reporting module for Odoo 14, designed to generat
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-username/odoo-14-reporting-module.git
+   git clone git@github.com:Dhrumil-Goswami/pdf-xls-dashboard-toolkit.git
    cd odoo-14-reporting-module
