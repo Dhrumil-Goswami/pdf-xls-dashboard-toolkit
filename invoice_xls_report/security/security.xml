@@ -1,0 +1,7 @@
+<odoo>
+        <record id="group_web_url" model="res.groups">
+                <field name="name">Booking</field>
+                <field name="comment">Show Booking menu in website</field>
+                <field name="category_id" ref="base.module_category_hidden"/>
+        </record>
+</odoo>

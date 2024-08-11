@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_frontend_booking" inherit_id="portal.assets_frontend" name="Booking">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/invoice_xls_report/static/src/js/bookin_page.js">
+                </script>
+                </xpath>
+    </template>
+</odoo>

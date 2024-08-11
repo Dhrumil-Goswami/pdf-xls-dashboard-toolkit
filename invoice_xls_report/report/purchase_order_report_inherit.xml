@@ -1,0 +1,96 @@
+<odoo>
+	<data>
+		<template id="report_purchase_order_inherit" inherit_id="purchase.report_purchaseorder_document">
+			<xpath expr="//div[@id='total']" position="after">
+				<div style="margin-top:1px;">
+					<table class="table table-bordered mb32" style="table-layout:auto">
+						<thead>
+							<tr>
+								<th class="text-center" style="font-family:Arial;font-size: 14px;" name="th_description">
+									<strong>Product Name</strong>
+								</th>
+								<th class="text-center" style="font-family:Arial;font-size: 14px;" name="th_description">
+									<strong>Tax</strong>
+								</th>
+								<th class="text-center" style="font-family:Arial;font-size: 14px;" name="th_description">
+									<strong>Amount</strong>
+								</th>
+							</tr>
+						</thead>
+						<t t-foreach="o.order_line" t-as="line">
+							<t t-if="line.taxes_id">
+								<t t-set="total_custom" t-value="0"/>
+								<tbody>
+									<t t-set="tax" t-value="0"/>
+									<td style="font-family:Arial;font-size: 13px;height:13px;">
+										<span t-field="line.name"/>
+									</td>
+									<t t-set="flag" t-value="0"/>
+									<t t-foreach="line.taxes_id" t-as="t">
+										<t t-if="t.tax_group_id.name=='GST'">
+											<t t-foreach="t.children_tax_ids" t-as="taxes">
+												<t t-set="tax" t-value="(taxes.amount * line.price_subtotal)/100"/>
+												<t t-if="flag == 0">
+												<t t-if="taxes.tax_group_id.name =='SGST'">
+													<td style="font-family:Arial;font-size: 13px;height:13px;" class="text-center">
+														<strong>SGST
+															<t t-esc="'{:,.2f}'.format(abs(taxes.amount))"/> %
+														</strong>
+													</td>
+													<td class="text-right" style="font-family:Arial;font-size: 13px;height:13px;">
+														<!-- <br/> -->
+														<span t-esc="tax" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+													</td>
+													</t>
+													</t>
+												<t t-if="flag ==4">
+													<t t-if="taxes.tax_group_id.name =='SGST'">
+													<tr>
+														<td style="font-family:Arial;font-size: 13px;height:13px;"></td>
+													<td style="font-family:Arial;font-size: 13px;height:13px;" class="text-center">
+														<strong>SGST
+															<t t-esc="'{:,.2f}'.format(abs(taxes.amount))"/> %
+														</strong>
+													</td>
+													<td class="text-right"  style="font-family:Arial;font-size: 13px;height:13px;">
+														<!-- <br/> -->
+														<span t-esc="tax" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+													</td>
+													</tr>
+														
+													</t>
+
+												</t>
+
+												<t t-if="taxes.tax_group_id.name =='CGST'">
+												<tr>
+													<t t-set="flag" t-value="4"/>
+													<td style="font-family:Arial;font-size: 13px;height:13px;"></td>
+													<td style="font-family:Arial;font-size: 13px;height:13px;" class="text-center">
+														<strong>
+											CGST
+															<t t-esc="'{:,.2f}'.format(abs(taxes.amount))"/> %
+														</strong>
+													</td>
+														<br/>
+													<td class="text-right" style="font-family:Arial;font-size: 13px;height:13px;">
+														<span t-esc="tax" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+													</td>
+												</tr>
+												</t>
+											</t>
+										</t>
+									</t>
+									<!-- <t t-set="total_custom" t-value="total_custom + tax"/></t> -->
+									<!-- <td class="text-right">
+										<span t-esc="total_custom" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+									</td> -->
+								</tbody>
+							</t>
+						</t>
+					</table>
+				</div>
+			</xpath>
+		</template>
+	</data>
+</odoo>

@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="routemanager" name="Route Manager">
+            <t t-call="website.layout">
+                <t t-set="head">
+                    <t t-call-assets="web.assets_frontend" t-js="false"/></t>
+                <div id="wrap" class="oe_structure oe_empty">
+                    <div class="oe_structure">
+                        <section class="s_title parallax s_parallax_is_fixed bg-black-50 pt24 pb24" data-vcss="001" data-snippet="s_title" data-scroll-background-ratio="1" data-name="Title">
+                            <span class="s_parallax_bg oe_img_bg" style="background-image: url('/web/image/website.s_banner_default_image'); 
+                                background-position: 50% 0;"/>
+                            <div class="o_we_bg_filter bg-black-50"/>
+                            <div class="container">
+                                <h1>Route Manager
+                               </h1>
+                            </div>
+                        </section>
+                    </div>
+                    <section class="s_website_form pb16 o_colored_level pt48" data-vcss="001" data-snippet="s_website_form" data-name="Form">
+                        <div class="container">
+                            <form action="/route-manager/order-now" method="post" class="form-horizontal mt32" enctype="multipart/form-data" data-success-mode="redirect" data-success-page="/contactus-thank-you">
+                            <div class="row align-items-center">
+                                <div class="col-md-6 pt16 pb16 o_colored_level" style="margin-top:-1629px;">
+                                  <img src="/web/image/website.s_image_text_default_image" class="img img-fluid mx-auto" alt="" loading="lazy" data-original-id="386" data-original-src="/website/static/src/img/snippets_demo/s_image_text.jpg" data-mimetype="image/jpeg" />
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                    <!-- <div class="s_website_form_rows row s_col_no_bgcolor"> -->
+                                        <div class="form-group s_website_form_field col-12 col-lg-12 s_website_form_custom s_website_form_required " data-type="char" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="vzgtvcb2sa">
+                                                    <span class="s_website_form_label_content">Company name</span>
+                                                    <span class="s_website_form_mark">*</span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <div class="" style="width:70%;border: 1px solid gray;">
+                                                    <input type="text" class="form-control s_website_form_input" name="Company" required="1" placeholder="" id="vzgtvcb2sa"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group s_website_form_field col-12 col-lg-12 s_website_form_custom " data-type="char" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label " for="6ymvf58yzh">
+                                                    <span class="s_website_form_label_content">
+                                                        <t t-if="fields and fields.contact_name">
+                                                            <t t-esc="fields.contact_name"/></t>
+                                                        <t t-else="">Billing Address</t>
+                                                    </span>
+                                                    <span class="s_website_form_mark">*</span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <div class="" style="width: 70%;border: 1px solid gray;">
+                                                    <input type="text" class="form-control s_website_form_input" name="Contact" required="1" placeholder="" id="6ymvf58yzh"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group s_website_form_field col-12 col-lg-12 s_website_form_model_required " data-type="char" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label " for="21jigxhz0z8">
+                                                    <span class="s_website_form_label_content">
+                                                        Billing Address 2
+                                                    </span>
+                                                    <span class="s_website_form_mark">*</span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <div class="" style="width: 70%;border: 1px solid gray;">
+                                                    <input type="text" class="form-control s_website_form_input" name="address2" required="true" placeholder="" id="21jigxhz0z8"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group s_website_form_field col-12 col-lg-12 s_website_form_model_required " data-type="char" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label " for="21jigxhz0z9">
+                                                    <span class="s_website_form_label_content">
+                                                        City
+                                                    </span>
+                                                    <span class="s_website_form_mark">*</span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <div class="" style="width: 70%;border: 1px solid gray;">
+                                                    <input type="text" class="form-control s_website_form_input" name="city" required="true" placeholder="" id="21jigxhz0z9"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="form-group s_website_form_field col-12 s_website_form_custom col-lg-12" data-type="char" data-name="Field"><div class="row s_col_no_resize s_col_no_bgcolor"><label class="col-form-label col-sm-auto s_website_form_label " for="kncbjbjtmjp"><span class="s_website_form_label_content"><t t-if="fields and fields.country_code"><t t-esc="fields.country_code"/></t><t t-else="">City</t></span></label></div><div><div class="selectdiv" style="width: 40%;border: 1px solid gray;"><select id="country_code_id" name="country_code_id" class="form-control"><option value="">Country Code...</option><t t-foreach="country_codes" t-as="cc"><option t-att-value="cc.id"><t t-esc="cc.code"/></option></t></select></div></div></div> -->
+                                        <!-- <div class="form-group s_website_form_field col-12 s_website_form_custom col-lg-12" data-type="char" data-name="Field"><div class="row s_col_no_resize s_col_no_bgcolor"><label class="col-form-label col-sm-auto s_website_form_label " style="width: 200px" for="zy4no7rqgrp"><span class="s_website_form_label_content">City</span></label></div><div><div class="col-sm" style="width: 40%;border: 1px solid gray;"><input type="text" class="form-control s_website_form_input" name="city" id="zy4no7rqgrp"/></div></div></div> -->
+                                        <div class="form-group s_website_form_field col-12 s_website_form_custom col-lg-12" data-type="char" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label " style="width: 200px" for="state_id">
+                                                    <span class="s_website_form_label_content">State</span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <div class="selectdiv" style="width: 250px;border: 1px solid gray;">
+                                                    <t t-set="states" t-value="request.env['res.country.state'].sudo().search([])" />
+                                                    <select id="state_id" name="state_id" class="form-control">
+                                                        <option value="">State...</option>
+                                                        <t t-foreach="states" t-as="c">
+                                                            <option>
+                                                                <t t-esc="c.name"/>
+                                                            </option>
+                                                        </t>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group s_website_form_field col-12 col-lg-12 s_website_form_custom " data-type="char" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label " style="width: 200px" for="zip">
+                                                    <span class="s_website_form_label_content">zip</span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <div class="" style="width: 70%;border: 1px solid gray;">
+                                                    <input type="text" class="form-control s_website_form_input" name="zip" placeholder="" id="zip"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group s_website_form_field col-12 col-lg-12 s_website_form_model_required " data-type="char" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label " for="company_phone">
+                                                    <span class="s_website_form_label_content">
+                                                        <t t-if="fields and fields.phone">
+                                                            <t t-esc="fields.phone"/></t>
+                                                        <t t-else="">Company Phone</t>
+                                                    </span>
+                                                    <span class="s_website_form_mark">*</span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <div class="" style="width: 70%;border: 1px solid gray;">
+                                                    <input type="text" class="form-control s_website_form_input" name="company_phone" required="true" placeholder="" id="company_phone"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group s_website_form_field col-12 col-lg-12 s_website_form_model_required " data-type="char" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label " style="width: 200px" for="company_web_site">
+                                                    <span class="s_website_form_label_content">Company Web Site</span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <div class="" style="width: 70%;border: 1px solid gray;">
+                                                    <input type="text" class="form-control s_website_form_input" name="company_web_site"  placeholder="" id="company_web_site"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="form-group s_website_form_field col-12 col-lg-12 s_website_form_custom " data-type="char">
+                                            <h4> Primary Contact Title </h4>
+                                        </div>
+                                        <div class="form-group s_website_form_field col-12 col-lg-12 s_website_form_custom " data-type="char" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label " for="primary_contact">
+                                                    <span class="s_website_form_label_content">
+                                                        <t t-if="fields and fields.mobile">
+                                                            <t t-esc="fields.mobile"/></t>
+                                                        <t t-else="">Primary Contact Name</t>
+                                                    </span>
+                                                    <span class="s_website_form_mark">*</span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <div class="" style="width: 70%;border: 1px solid gray;">
+                                                    <input type="text" class="form-control s_website_form_input" name="primary_contact" required="1" placeholder="" id="primary_contact"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group s_website_form_field col-12 col-lg-12 s_website_form_custom " data-type="char" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label " for="primary_email">
+                                                    <span class="s_website_form_label_content">
+                                                        <t t-if="fields and fields.email">
+                                                            <t t-esc="fields.email"/></t>
+                                                        <t t-else="">Primary Email address</t>
+                                                    </span>
+                                                    <span class="s_website_form_mark">*</span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <div class="" style="width: 70%;border: 1px solid gray;">
+                                                    <input type="text" class="form-control s_website_form_input" name="primary_email" required="1" placeholder="" id="primary_email"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group s_website_form_field col-12 col-lg-12 s_website_form_custom " data-type="char" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label " for="primary_contact_work_phone">
+                                                    <span class="s_website_form_label_content">
+                                                        Primary Contact Work Phone
+                                                    </span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <div class="" style="width: 70%;border: 1px solid gray;">
+                                                    <input type="text" class="form-control s_website_form_input" name="primary_contact_work_phone" placeholder="" id="primary_contact_work_phone"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group s_website_form_field col-12 col-lg-12 s_website_form_custom " data-type="char" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label " for="primary_contact_work_cell">
+                                                    <span class="s_website_form_label_content">
+                                                        Primary Contact Cell Phone
+                                                    </span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <div class="" style="width: 70%;border: 1px solid gray;">
+                                                    <input type="text" class="form-control s_website_form_input" name="primary_contact_work_cell" placeholder="" id="primary_contact_work_cell"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group s_website_form_field col-12 col-lg-12 s_website_form_custom " data-type="char" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label " for="country_code_outside_usa">
+                                                    <span class="s_website_form_label_content">
+                                                        Country Code if outside USA
+                                                    </span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <div class="" style="width: 70%;border: 1px solid gray;">
+                                                    <input type="text" class="form-control s_website_form_input" name="country_code_outside_usa" placeholder="" id="country_code_outside_usa"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group s_website_form_field col-12 col-lg-12 s_website_form_custom " data-type="char">
+                                            <h4> Note: Secondary information will be used in the event the Primary Contact is unavailable  </h4>
+                                        </div>
+                                        <div class="form-group s_website_form_field col-12 col-lg-12 s_website_form_custom " data-type="char" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label " for="sec_contact_name">
+                                                    <span class="s_website_form_label_content">
+                                                        Secondary Contact Name 
+                                                    </span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <div class="" style="width: 70%;border: 1px solid gray;">
+                                                    <input type="text" class="form-control s_website_form_input" name="sec_contact_name" placeholder="" id="sec_contact_name"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group s_website_form_field col-12 col-lg-12 s_website_form_custom " data-type="char" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label " for="sec_contact_title">
+                                                    <span class="s_website_form_label_content">
+                                                        Secondary Contact Title 
+                                                    </span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <div class="" style="width: 70%;border: 1px solid gray;">
+                                                    <input type="text" class="form-control s_website_form_input" name="sec_contact_title" placeholder="" id="sec_contact_title"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group s_website_form_field col-12 col-lg-12 s_website_form_custom " data-type="char" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label " for="sec_emaiL">
+                                                    <span class="s_website_form_label_content">Enter a unique email address for each user separate each email address with a comma ( , ) </span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <div class="" style="width: 70%;border: 1px solid gray;">
+                                                    <input type="text" class="form-control s_website_form_input" name="sec_emaiL" placeholder="test@gmail.com,test1@gmail.com" id="sec_emaiL"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group s_website_form_field col-12 col-lg-12 s_website_form_custom " data-type="char" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label " for="sec_work_phone">
+                                                    <span class="s_website_form_label_content">
+                                                        Secondary Contact Work Phone 
+
+                                                    </span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <div class="" style="width: 70%;border: 1px solid gray;">
+                                                    <input type="text" class="form-control s_website_form_input" name="sec_work_phone" placeholder="" id="sec_work_phone"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group s_website_form_field col-12 col-lg-12 s_website_form_custom " data-type="char" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label " for="sec_cell_phone">
+                                                    <span class="s_website_form_label_content">
+                                                        Secondary Contact Cell Phone
+                                                    </span>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <div class="" style="width: 70%;border: 1px solid gray;">
+                                                    <input type="text" class="form-control s_website_form_input" name="sec_cell_phone" placeholder="" id="sec_cell_phone"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <!-- </div> -->
+                                    <div class='row'>
+                                        <div class='col-md-12'>
+                                            <table class="mb16 table table-striped table-sm" id="myTable">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="td-img" style="width: 200px;display:none;">id</th>
+                                                        <th class="td-img">Product</th>
+                                                        <th class="text-center td-qty">Description</th>
+                                                        <th class="text-center td-price">Cost</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="tbody"></tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 text-left">
+                                        <button type="button" class="btn btn-link" id="product" name="product">Add
+                                        </button>
+                                    </div>
+                                <input type="number" id="row" name="row" style="display: none;"/>
+                                <div class="form-group s_website_form_field col-12 col-lg-12 s_website_form_custom" id="submit-div">
+                                    <div class="offset-lg-5 offset-md-4 col-md-8 col-lg-7">
+                                        <button  class="btn btn-primary" name="send" id="send">Send
+                                        </button>
+                                        <button type="reset" class="btn btn-primary reset" data-dismiss="modal">
+                                            Cancel
+                                        </button>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </form>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>
+<!-- <div class="row s_col_no_resize s_col_no_bgcolor"><label class="col-form-label col-sm-auto s_website_form_label " style="width: 200px" for="product"><span class="s_website_form_label_content">Select Products</span></label></div> -->
+<!-- <t t-set="product" t-value="request.env['product.product'].sudo().search([])" /><select id="product" name="product" class="form-control js-example-basic-multiple" placeholder="Select Product"><t t-foreach="product" t-as="p"><option t-att-value="p.id"><t t-esc="p.name" value="p.id"/></option></t></select> -->
+<!-- <div class="form-group s_website_form_field col-12 col-lg-12 s_website_form_custom " data-type="char" data-name="Field"><div class="row s_col_no_resize s_col_no_bgcolor"><label class="col-form-label col-sm-auto s_website_form_label " for="sec_emaiL"><span class="s_website_form_label_content">
+                                                    Secondary Email address
+                                                </span></label></div><div><div class="" style="width: 40%;border: 1px solid gray;"><input type="text" class="form-control s_website_form_input" name="sec_emaiL" placeholder="" id="sec_emaiL"/></div></div></div> -->
+<!-- <div class="form-group s_website_form_field col-12 col-lg-12 s_website_form_custom " data-type="char" data-name="Field"><div class="row s_col_no_resize s_col_no_bgcolor"><label class="col-form-label col-sm-auto s_website_form_label " for="s2kjioh1qk"><span class="s_website_form_label_content">Enter a unique email address for each user separate each email address with a comma ( , ) </span></label></div><div><div class="" style="border: 1px solid gray;"><input type="text" class="form-control s_website_form_input" name="emails" placeholder="test@gmail.com,test1@gmail.com" id="s2kjioh1qk"/></div></div></div> -->
+<!-- <div class="form-group s_website_form_field col-12 col-lg-12 s_website_form_custom " data-type="boolean" data-name="Field"><div class="row s_col_no_resize s_col_no_bgcolor"><label class="col-form-label col-sm-auto s_website_form_label " for="s2kjioh1qk"><span class="s_website_form_label_content">You want to upload contact spreadsheet </span><span class="s_website_form_mark">*</span></label></div><div><div class="" style="width:55px"> YES/NO 
+                                                <input type="checkbox" class="form-control s_website_form_input" name="checkbox_cgv" placeholder="" id="checkbox_cgv" onchange="populate_columns(this)"/></div></div></div> -->
+<!-- <label class="col-form-label col-sm-auto s_website_form_label" style="display:none" id="user_label"><span class="s_website_form_label_content">Enter the number of Users that you want to have a license. </span></label> -->
+<!-- <div class="form-group s_website_form_field col-12 col-lg-12 s_website_form_custom" style="display:none" data-type="file" data-name="Field" id="sample_id"><span><strong>Sample File:</strong></span><br/><a t-att-href="'/web/binary/download_document'"><span class="fa fa-download" /> -->
+<!-- <span t-esc="attachment.name" class="fa fa-download" />-->
+<!-- </a> -->
+<!-- </div> -->
